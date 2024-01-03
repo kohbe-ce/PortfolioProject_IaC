@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: php-apache
+  namespace: staging
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # Fargate 방식에선 ip 타입만 지원
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+    - host: conas.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Exact
+            backend:
+              service:
+                name: php-apache
+                port:
+                  number: 80
