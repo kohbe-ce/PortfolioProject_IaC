@@ -42,3 +42,18 @@ resource "helm_release" "aws-load-balancer-controller" {
   }
   depends_on = [ aws_eks_fargate_profile.kube-system ]
 }
+
+
+resource "null_resource" "delete_helm_release" {
+  count = var.run_destroy_script ? 1 : 0  # 이 변수를 통해 스크립트 실행 여부 결정
+
+  provisioner "local-exec" {
+    command = "etc/delete-helm-release.sh"
+  }
+
+  depends_on = [helm_release.aws-load-balancer-controller]
+}
+
+variable "run_destroy_script" {
+  default = false
+}

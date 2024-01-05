@@ -11,11 +11,10 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: conas.xyz
-      http:
+    - http:
         paths:
           - path: /
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: php-apache

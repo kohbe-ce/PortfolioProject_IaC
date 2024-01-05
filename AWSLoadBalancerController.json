@@ -158,7 +158,6 @@
               "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*"
           ],
           "Condition": {
-
             "StringEquals": {
                 "elasticloadbalancing:CreateAction": [
                     "CreateTargetGroup",
@@ -168,7 +167,7 @@
             "Null": {
                 "aws:RequestTag/elbv2.k8s.aws/cluster": "false"
             }
-          }
+        }
       },
       {
           "Effect": "Allow",
@@ -180,7 +179,8 @@
               "arn:aws:elasticloadbalancing:*:*:listener/net/*/*/*",
               "arn:aws:elasticloadbalancing:*:*:listener/app/*/*/*",
               "arn:aws:elasticloadbalancing:*:*:listener-rule/net/*/*/*",
-              "arn:aws:elasticloadbalancing:*:*:listener-rule/app/*/*/*"
+              "arn:aws:elasticloadbalancing:*:*:listener-rule/app/*/*/*",
+              "arn:aws:elasticloadbalancing:*:*:loadbalancer/*/*"
           ]
       },
       {
