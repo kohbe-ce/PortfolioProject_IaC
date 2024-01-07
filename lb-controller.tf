@@ -44,11 +44,11 @@ resource "helm_release" "aws-load-balancer-controller" {
 }
 
 
-resource "null_resource" "delete_helm_release" {
-  provisioner "local-exec" {
-    when    = destroy
-    command = "etc/delete-helm-release.sh"
-  }
+# resource "null_resource" "delete_helm_release" {
+#   provisioner "local-exec" {
+#     when    = destroy
+#     command = "etc/delete-helm-release.sh"
+#   }
 
-  depends_on = [helm_release.aws-load-balancer-controller]
-}
+#   depends_on = [helm_release.aws-load-balancer-controller]
+# }
