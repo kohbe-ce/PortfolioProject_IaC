@@ -40,7 +40,7 @@ resource "aws_eks_cluster" "cluster" {
       aws_subnet.private-ap-northeast-2a.id,
       aws_subnet.private-ap-northeast-2b.id,
       aws_subnet.public-ap-northeast-2a.id,
-      aws_subnet.private-ap-northeast-2b.id
+      aws_subnet.public-ap-northeast-2b.id
      ]
   }
 }
