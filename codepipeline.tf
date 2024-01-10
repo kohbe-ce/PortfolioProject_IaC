@@ -21,7 +21,7 @@ resource "aws_codepipeline" "cicd-pipeline" {
       configuration = {
         RepositoryName      = "portfolio-cicd-repository"
         BranchName          = "main"
-        PollForSourceChanges = false
+        PollForSourceChanges = true
       }
     }
   }
